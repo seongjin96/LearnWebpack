@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  mode: 'none',
+  mode: 'none', // production, development, none
   entry: './index.js',
   output: {
     filename: 'bundle.js',
@@ -12,6 +12,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+        // loader는 오른쪽에서 왼쪽 순서로 적용되므로 아래 코드는 오류가 발생한다.
+        // use: ['css-loader', 'style-loader']
       }
     ]
   },
